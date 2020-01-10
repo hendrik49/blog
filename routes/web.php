@@ -1,5 +1,7 @@
 <?php
 
+use Illuminate\Support\Facades\Redis;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,3 +16,12 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+
+Route::get('/', function () {
+    $p = Redis::incr('p');
+    return $p;
+});
+
+Route::get("users_with_cache", "UserController@index");
+Route::get("users_with_query", "UserController@getUser");
