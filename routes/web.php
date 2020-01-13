@@ -25,3 +25,4 @@ Route::get('/', function () {
 
 Route::get("users_with_cache", "UserController@index");
 Route::get("users_with_query", "UserController@getUser");
+Route::get('posts', 'PostController@index')->name('posts');

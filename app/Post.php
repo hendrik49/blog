@@ -3,8 +3,9 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use App\BaseEloquent;
 
-class Post extends Model
+class Post extends BaseEloquent
 {
     //
     protected $fillable = [

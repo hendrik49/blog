@@ -18,9 +18,10 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::group(['prefix' => 'posts'], function() {
-    Route::get('/', 'PostController@index')->name('posts');
+    Route::get('/', 'PostController@indexapi')->name('posts');
     Route::get('/{post}', 'PostController@show')->name('posts.show');
     Route::post('/', 'PostController@store')->name('posts.store');
     Route::put('/{post}', 'PostController@update')->name('posts.update');
     Route::delete('/{post}', 'PostController@delete')->name('posts.delete');
 });
+

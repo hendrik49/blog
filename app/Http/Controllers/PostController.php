@@ -4,12 +4,21 @@ namespace App\Http\Controllers;
 
 use App\Post;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Cache;
 
 class PostController extends Controller
 {
     //
-    public function index() {
-        return Post::all();
+    public function indextes() {       
+        $query = Post::all();
+        foreach ($query as $q) {
+            echo "<li>{$q->title}</li>";
+        }
+    }
+
+    public function index() {       
+        $query = Post::all();
+        return response()->json($query);
     }
     
     public function show(Post $post) {
@@ -25,6 +34,6 @@ class PostController extends Controller
     }
     public function delete(Post $post) {
         $post->delete();
-        return response()->json(null, 204);
+        return response()->json("success delete post id ".$post, 204);
     }
 }
